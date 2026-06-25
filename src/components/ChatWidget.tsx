@@ -12,7 +12,7 @@ const WELCOME: Message = {
   id: 'welcome',
   role: 'assistant',
   content:
-    'Hola, soy Stack Barber, tu asistente de Zac Barber. Puedo mostrarte servicios, precios o ayudarte a reservar una cita.',
+    'Hola, bienvenido a Zac Barber. Puedo mostrarte servicios, precios o ayudarte a reservar una cita.',
 }
 
 export default function ChatWidget({ onClose, initialMessage }: Props) {
@@ -77,7 +77,7 @@ export default function ChatWidget({ onClose, initialMessage }: Props) {
           className="flex items-center gap-2 rounded-full bg-zinc-900 border border-zinc-700 px-4 py-2.5 shadow-2xl hover:border-amber-500/50 transition-colors"
         >
           <img src="/img/logo.png" alt="" className="h-6 w-6 rounded-full" />
-          <span className="text-sm font-medium text-white">Stack Barber</span>
+          <span className="text-sm font-medium text-white">Zac Barber</span>
           {messages.length > 1 && (
             <span className="flex h-5 w-5 items-center justify-center rounded-full bg-amber-500 text-[10px] font-bold text-black">
               {messages.filter(m => m.role === 'assistant').length - 1}
@@ -95,9 +95,9 @@ export default function ChatWidget({ onClose, initialMessage }: Props) {
         {/* Header */}
         <div className="flex items-center justify-between border-b border-zinc-800 bg-zinc-950 px-4 py-3">
           <div className="flex items-center gap-3">
-            <img src="/img/logo.png" alt="Stack Barber" className="h-8 w-8 rounded-full" />
+            <img src="/img/logo.png" alt="Zac Barber" className="h-8 w-8 rounded-full" />
             <div>
-              <p className="text-sm font-semibold text-white">Stack Barber</p>
+              <p className="text-sm font-semibold text-white">Zac Barber</p>
               <p className="text-[11px] text-emerald-400 flex items-center gap-1">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                 En línea
