@@ -32,14 +32,15 @@ function Icon({ name, size = 48 }: { name: string; size?: number }) {
   const ic = SPRITE.find(i => i.name === name)
   if (!ic) return null
   const W = 1240, H = 744, cW = W / 5, cH = H / 3
-  const s = (size * 1.15) / Math.min(cW, cH)
-  const pad = (size - Math.min(cW, cH) * s) / 2
+  const scale = (size * 1.35) / Math.min(cW, cH)
+  const oX = -ic.col * cW * scale + (size - cW * scale) / 2
+  const oY = -ic.row * cH * scale + (size - cH * scale) / 2
   return (
     <div className="inline-block flex-shrink-0" style={{
       width: size, height: size,
       backgroundImage: 'url(/img/icons-sprite.png)',
-      backgroundSize: `${W * s}px ${H * s}px`,
-      backgroundPosition: `${-ic.col * cW * s + pad}px ${-ic.row * cH * s + pad}px`,
+      backgroundSize: `${W * scale}px ${H * scale}px`,
+      backgroundPosition: `${oX}px ${oY}px`,
       backgroundRepeat: 'no-repeat',
     }} />
   )
@@ -117,12 +118,13 @@ function Navbar({ onOpenChat }: { onOpenChat: () => void }) {
 function Hero({ onOpenChat }: { onOpenChat: () => void }) {
   return (
     <section id="hero" className="relative h-screen min-h-[600px] max-h-[1000px] flex items-center justify-center overflow-hidden">
-      <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover scale-105"
-        style={{ filter: 'brightness(0.5)' }}>
+      <video autoPlay muted loop playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ filter: 'brightness(0.45) contrast(1.1)', objectPosition: 'center 30%' }}>
         <source src="/mp4/hero.mp4" type="video/mp4" />
       </video>
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/90" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20" />
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <img src="/img/logo.png" alt="Zac Barber"
@@ -211,9 +213,9 @@ function About() {
         </div>
         <div className="relative flex justify-center">
           <div className="w-full max-w-sm aspect-[3/4] rounded-2xl bg-zinc-900/80 border border-zinc-800 overflow-hidden relative">
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-zinc-900/20 to-black/30" />
             <div className="absolute inset-0 flex items-center justify-center">
-              <Icon name="chair" size={140} />
+              <Icon name="chair" size={180} />
             </div>
             <div className="absolute bottom-6 left-6 right-6 z-10">
               <p className="font-display text-lg text-amber-400">Zac Barber</p>
@@ -291,11 +293,11 @@ function Gallery() {
           <SectionLabel icon="profile" text="Galería" />
           <SectionTitle>Nuestros <span className="text-amber-400">Trabajos</span></SectionTitle>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {items.map((it, i) => (
-            <div key={i} className="group relative aspect-[4/3] rounded-2xl bg-zinc-900/60 border border-zinc-800/60 overflow-hidden hover:border-amber-500/40 transition-all duration-500 cursor-pointer">
+            <div key={i} className="group relative aspect-square rounded-2xl bg-zinc-900/60 border border-zinc-800/60 overflow-hidden hover:border-amber-500/40 transition-all duration-500 cursor-pointer">
               <div className="absolute inset-0 flex items-center justify-center group-hover:scale-110 transition-transform duration-700">
-                <Icon name={it.icon} size={100} />
+                <Icon name={it.icon} size={130} />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300" />
               <div className="absolute bottom-4 left-5 right-5 translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
