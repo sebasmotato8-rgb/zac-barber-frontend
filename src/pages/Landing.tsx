@@ -141,16 +141,16 @@ function About() {
           </div>
         </div>
         <div className="relative flex justify-center">
-          <div className="w-full max-w-sm aspect-[3/4] rounded-2xl bg-zinc-900/80 border border-zinc-800 overflow-hidden relative group">
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-zinc-900/20 to-black/30 z-10" />
-            <img src="/img/chair.png" alt="Silla de barbería" className="absolute inset-0 w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500" />
-            <div className="absolute bottom-6 left-6 right-6 z-20">
+          <div className="w-full aspect-[3/4] rounded-2xl overflow-hidden relative group">
+            <img src="/img/chair.png" alt="Silla de barbería" className="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent rounded-2xl" />
+            <div className="absolute bottom-6 left-6 right-6 z-10">
               <p className="font-display text-lg text-amber-400">Zac Barber</p>
               <p className="text-sm text-zinc-400 mt-1">Donde tu estilo cobra vida</p>
             </div>
           </div>
-          <div className="absolute -bottom-5 -right-5 h-24 w-24 rounded-2xl border border-amber-500/15 bg-zinc-900 flex items-center justify-center shadow-xl">
-            <Ico name="scissors" size={50} />
+          <div className="absolute -bottom-5 -right-5 h-20 w-20 rounded-2xl overflow-hidden shadow-xl border border-amber-500/15">
+            <img src="/img/scissors.png" alt="" className="w-full h-full object-cover" />
           </div>
         </div>
       </div>
