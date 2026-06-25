@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from 'react'
-import { supabase } from '../lib/supabase'
 
 const TODAY_STR = new Date().toLocaleDateString('es-CO', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })
 const PRICES: Record<string, number> = {
@@ -80,18 +79,19 @@ function isToday(isoStr: string): boolean {
 interface RawApt {
   id: string
   scheduled_at: string
+  ends_at?: string
   status: string
   notes: string | null
-  client_id: string | null
-  service_id: string | null
+  source?: string
   clients?: { full_name: string; phone: string } | null
-  services?: { name: string } | null
+  services?: { name: string; price?: number; duration_minutes?: number } | null
+  users?: { full_name: string } | null
 }
 
 function parseApt(row: RawApt): Apt {
   return {
     id: row.id,
-    client: row.clients?.full_name ?? 'Cliente',
+    client: row.clients?.full_name ?? 'Cliente (Chat)',
     service: row.services?.name ?? 'Servicio',
     time: isToday(row.scheduled_at) ? formatTime(row.scheduled_at) : `${formatDate(row.scheduled_at)} ${formatTime(row.scheduled_at)}`,
     status: (row.status as Status) ?? 'pending',
@@ -122,61 +122,34 @@ export default function Dashboard() {
   const [configAdvance, setConfigAdvance] = useState('60')
   const [configMaxDays, setConfigMaxDays] = useState('30')
 
+  const API_URL = import.meta.env.VITE_API_URL
+  const SHOP_ID = import.meta.env.VITE_SHOP_ID
+
   const fetchAppointments = useCallback(async () => {
-    const sb = supabase
-    if (!sb) { setLoading(false); return }
+    if (!API_URL || !SHOP_ID) { setLoading(false); return }
     try {
-      const todayISO = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Bogota' })
-      const { data } = await sb
-        .from('appointments')
-        .select('id, scheduled_at, status, notes, client_id, service_id, clients(full_name, phone), services(name)')
-        .gte('scheduled_at', `${todayISO}T00:00:00`)
-        .not('status', 'eq', 'cancelled')
-        .order('scheduled_at', { ascending: true })
-        .limit(50)
-      if (data) {
-        const apts = (data as unknown as RawApt[]).map(parseApt)
-        setTodayApts(apts.filter(a => isToday(a.scheduledAt)))
-        setUpcomingApts(apts.filter(a => !isToday(a.scheduledAt)))
-      }
+      const res = await fetch(`${API_URL}/public/dashboard/appointments`, {
+        headers: { 'x-shop-id': SHOP_ID },
+      })
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      const json = await res.json()
+      const rows = (json.data ?? []) as RawApt[]
+      const apts = rows.map(parseApt)
+      setTodayApts(apts.filter(a => isToday(a.scheduledAt)))
+      setUpcomingApts(apts.filter(a => !isToday(a.scheduledAt)))
     } catch (err) {
       console.error('Failed to fetch appointments', err)
     } finally {
       setLoading(false)
     }
-  }, [])
+  }, [API_URL, SHOP_ID])
 
   useEffect(() => { fetchAppointments() }, [fetchAppointments])
 
-  const addRealtimeApt = useCallback((payload: Record<string, unknown>) => {
-    const row = payload as unknown as RawApt
-    const apt = parseApt(row)
-    if (isToday(apt.scheduledAt)) {
-      setTodayApts(p => {
-        if (p.some(a => a.id === apt.id)) return p
-        return [...p, apt]
-      })
-    } else {
-      setUpcomingApts(p => {
-        if (p.some(a => a.id === apt.id)) return p
-        return [...p, apt]
-      })
-    }
-    setToast(`Nueva cita: ${apt.client} — ${apt.time}`)
-  }, [])
-
   useEffect(() => {
-    const sb = supabase
-    if (!sb) return
-    const channel = sb
-      .channel('appointments-realtime')
-      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'appointments' }, (payload) => {
-        addRealtimeApt(payload.new)
-        fetchAppointments()
-      })
-      .subscribe()
-    return () => { sb.removeChannel(channel) }
-  }, [addRealtimeApt, fetchAppointments])
+    const interval = setInterval(fetchAppointments, 15000)
+    return () => clearInterval(interval)
+  }, [fetchAppointments])
 
   const allApts = [...todayApts, ...upcomingApts]
   const activeToday = todayApts.filter(a => a.status !== 'cancelled')
