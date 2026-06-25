@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
+import { supabase } from '../lib/supabase'
 
 const TODAY_STR = new Date().toLocaleDateString('es-CO', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })
 const PRICES: Record<string, number> = {
@@ -94,6 +95,39 @@ export default function Dashboard() {
   const [configSlot, setConfigSlot] = useState('30')
   const [configAdvance, setConfigAdvance] = useState('60')
   const [configMaxDays, setConfigMaxDays] = useState('30')
+
+  const addRealtimeApt = useCallback((payload: Record<string, unknown>) => {
+    const row = payload as { id: string; scheduled_at: string; status: string; notes?: string }
+    const date = new Date(row.scheduled_at)
+    const timeStr = date.toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit', hour12: true, timeZone: 'America/Bogota' })
+    const newApt: Apt = {
+      id: row.id,
+      client: 'Nuevo Cliente (Chat)',
+      service: 'Servicio agendado',
+      time: timeStr,
+      status: (row.status as Status) ?? 'pending',
+      phone: '',
+    }
+    const isToday = date.toDateString() === new Date().toDateString()
+    if (isToday) {
+      setTodayApts(p => [...p, newApt])
+    } else {
+      setUpcomingApts(p => [...p, newApt])
+    }
+    setToast(`Nueva cita desde el chat: ${timeStr}`)
+  }, [])
+
+  useEffect(() => {
+    const sb = supabase
+    if (!sb) return
+    const channel = sb
+      .channel('appointments-realtime')
+      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'appointments' }, (payload) => {
+        addRealtimeApt(payload.new)
+      })
+      .subscribe()
+    return () => { sb.removeChannel(channel) }
+  }, [addRealtimeApt])
 
   const allApts = [...todayApts, ...upcomingApts]
   const activeToday = todayApts.filter(a => a.status !== 'cancelled')
