@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/((?!api|img|mp4|assets).*)", "destination": "/index.html" }
+  ]
+}

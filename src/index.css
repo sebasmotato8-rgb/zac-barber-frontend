@@ -3,5 +3,19 @@
 @tailwind utilities;
 
 body {
-  @apply bg-zinc-950 text-white antialiased;
+  @apply bg-black text-white antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
