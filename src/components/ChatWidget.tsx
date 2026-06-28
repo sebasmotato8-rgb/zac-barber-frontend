@@ -13,7 +13,7 @@ const FAQ: { keywords: string[]; answer: string }[] = [
   },
   {
     keywords: ['garantía', 'garantia', 'devolucion', 'devolución', 'devolver', 'reembolso', 'roto', 'defecto'],
-    answer: 'Ofrecemos garantía de 30 días. Si el producto llega defectuoso o no funciona correctamente, te enviamos uno nuevo o te hacemos un reembolso completo. Solo contáctanos a soporte@chargly.store.',
+    answer: 'Ofrecemos garantía de 30 días. Si el producto llega defectuoso o no funciona correctamente, te enviamos uno nuevo o te hacemos un reembolso completo. Solo contáctanos a soporte@chargly.shop.',
   },
   {
     keywords: ['compatible', 'compatibilidad', 'iphone', 'android', 'samsung', 'funciona con', 'sirve para', 'magsafe'],
@@ -21,7 +21,7 @@ const FAQ: { keywords: string[]; answer: string }[] = [
   },
   {
     keywords: ['pedido', 'orden', 'estado', 'seguimiento', 'tracking', 'donde esta', 'dónde está', 'rastrear'],
-    answer: 'Para consultar el estado de tu pedido, revisa el email de confirmación donde encontrarás tu número de seguimiento. Si tienes dudas, escríbenos a soporte@chargly.store con tu número de orden.',
+    answer: 'Para consultar el estado de tu pedido, revisa el email de confirmación donde encontrarás tu número de seguimiento. Si tienes dudas, escríbenos a soporte@chargly.shop con tu número de orden.',
   },
   {
     keywords: ['precio', 'costo', 'cuanto cuesta', 'cuánto cuesta', 'vale', 'descuento', 'oferta'],
@@ -48,7 +48,7 @@ function getResponse(input: string): string {
       return faq.answer
     }
   }
-  return 'Gracias por tu mensaje. Para consultas específicas puedes escribirnos a soporte@chargly.store. ¿Te puedo ayudar con información sobre envíos, garantía, compatibilidad o estado de pedido?'
+  return 'Gracias por tu mensaje. Para consultas específicas puedes escribirnos a soporte@chargly.shop. ¿Te puedo ayudar con información sobre envíos, garantía, compatibilidad o estado de pedido?'
 }
 
 const WELCOME: Message = {

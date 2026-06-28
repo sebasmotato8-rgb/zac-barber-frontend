@@ -28,7 +28,7 @@ export default function Footer() {
             <div className="space-y-2 text-sm text-zinc-500">
               <p>Envío: 15-20 días hábiles</p>
               <p>Garantía: 30 días</p>
-              <p>soporte@chargly.store</p>
+              <p>soporte@chargly.shop</p>
             </div>
           </div>
 
