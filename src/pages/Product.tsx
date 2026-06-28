@@ -52,11 +52,13 @@ export default function Product() {
           <div>
             <div
               className="mb-4 aspect-square cursor-pointer overflow-hidden border border-[#E8E4DF] rounded"
-              onClick={() => setLightbox(selected)}
+              onClick={() => current.type !== 'video' && setLightbox(selected)}
             >
               {current.type === 'video' ? (
                 <video
+                  key={current.src}
                   src={current.src}
+                  autoPlay
                   controls
                   playsInline
                   className="h-full w-full object-cover"
@@ -240,7 +242,7 @@ export default function Product() {
 
           <div className="max-h-[85vh] max-w-[90vw]" onClick={e => e.stopPropagation()}>
             {GALLERY[lightbox].type === 'video' ? (
-              <video src={GALLERY[lightbox].src} controls autoPlay playsInline className="max-h-[85vh] max-w-[90vw]" />
+              <video key={GALLERY[lightbox].src} src={GALLERY[lightbox].src} autoPlay controls playsInline className="max-h-[85vh] max-w-[90vw]" />
             ) : (
               <img src={GALLERY[lightbox].src} alt={PRODUCT.name} className="max-h-[85vh] max-w-[90vw] object-contain" />
             )}

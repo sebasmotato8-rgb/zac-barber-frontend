@@ -40,7 +40,6 @@ export const PRODUCT: Product = {
     '/images/product-6.jpg',
     '/images/product-7.jpg',
     '/images/product-8.jpg',
-    '/images/product-9.png',
     '/images/product-10.png',
     '/images/product-11.png',
     '/images/product-12.png',

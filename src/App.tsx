@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { CartProvider } from './context/CartContext'
 import Navbar from './components/Navbar'
@@ -11,6 +11,12 @@ import Checkout from './pages/Checkout'
 
 export default function App() {
   const [chatOpen, setChatOpen] = useState(false)
+
+  useEffect(() => {
+    const open = () => setChatOpen(true)
+    window.addEventListener('open-chat', open)
+    return () => window.removeEventListener('open-chat', open)
+  }, [])
 
   return (
     <CartProvider>

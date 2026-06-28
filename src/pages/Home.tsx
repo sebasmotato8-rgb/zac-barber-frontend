@@ -428,7 +428,37 @@ export default function Home() {
         </Reveal>
       </section>
 
-      {/* ═══ 12 · CTA FINAL — CLARA (garantía) + OSCURA (cierre) ═══ */}
+      {/* ═══ 12 · CHATBOT CTA — CLARA ═══ */}
+      <section className="bg-[#F5F2EE] py-20">
+        <Reveal>
+          <div className="mx-auto max-w-3xl px-6 text-center">
+            <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#D4825A]/10">
+              <svg className="h-8 w-8 text-[#D4825A]" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+            </div>
+            <h2 className="font-display text-4xl tracking-tight text-[#1a1a1a] sm:text-5xl">
+              &iquest;TIENES DUDAS?
+            </h2>
+            <p className="mt-4 max-w-md mx-auto text-sm font-light leading-relaxed text-[#888880]">
+              Nuestro asistente virtual est&aacute; disponible 24/7 para responder
+              tus preguntas sobre env&iacute;os, compatibilidad, garant&iacute;a y m&aacute;s.
+            </p>
+            <button
+              onClick={() => window.dispatchEvent(new Event('open-chat'))}
+              className="mt-8 inline-flex items-center gap-3 border-2 border-[#D4825A] px-8 py-4 text-sm font-bold tracking-wider text-[#D4825A] uppercase transition-all hover:bg-[#D4825A] hover:text-white"
+            >
+              <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+              Abrir chat de soporte
+            </button>
+            <p className="mt-3 text-xs text-[#888880]">Respuesta inmediata &middot; Sin esperas &middot; Disponible ahora</p>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* ═══ 13 · CTA FINAL — CLARA (garantía) + OSCURA (cierre) ═══ */}
       <section className="bg-gradient-to-b from-[#F5F2EE] to-[#EEEBE6] py-16">
         <Reveal>
           <div className="mx-auto max-w-4xl px-6">
