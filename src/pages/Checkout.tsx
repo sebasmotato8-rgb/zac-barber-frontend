@@ -87,7 +87,14 @@ export default function Checkout() {
     { key: 'phone', label: 'Phone', type: 'tel', placeholder: '+1 234 567 8900' },
     { key: 'address', label: 'Shipping Address', type: 'text', placeholder: '123 Main St, Apt 4B' },
     { key: 'city', label: 'City', type: 'text', placeholder: 'New York', half: true },
-    { key: 'country', label: 'Country', type: 'text', placeholder: 'US', half: true },
+  ]
+
+  const shippingCountries = [
+    { code: 'US', label: '\u{1F1FA}\u{1F1F8} United States — 5-11 days' },
+    { code: 'GB', label: '\u{1F1EC}\u{1F1E7} United Kingdom — 12-25 days' },
+    { code: 'CA', label: '\u{1F1E8}\u{1F1E6} Canada — 15-25 days' },
+    { code: 'ES', label: '\u{1F1EA}\u{1F1F8} Spain — 12-25 days' },
+    { code: 'FR', label: '\u{1F1EB}\u{1F1F7} France — 12-25 days' },
   ]
 
   return (
@@ -118,6 +125,24 @@ export default function Checkout() {
                     {errors[f.key] && <p className="mt-1 text-xs text-red-500">{errors[f.key]}</p>}
                   </div>
                 ))}
+                <div>
+                  <label className="mb-1 block text-[11px] font-medium uppercase tracking-wider text-[#888880]">Country</label>
+                  <select
+                    value={form.country}
+                    onChange={e => update('country', e.target.value)}
+                    className={`w-full border bg-[#FAFAF8] px-4 py-3 text-sm text-[#1a1a1a] transition-colors focus:outline-none rounded appearance-none ${
+                      errors.country
+                        ? 'border-red-300 focus:border-red-500'
+                        : 'border-[#E8E4DF] focus:border-terra'
+                    }`}
+                  >
+                    <option value="">Select country...</option>
+                    {shippingCountries.map(c => (
+                      <option key={c.code} value={c.code}>{c.label}</option>
+                    ))}
+                  </select>
+                  {errors.country && <p className="mt-1 text-xs text-red-500">{errors.country}</p>}
+                </div>
               </div>
 
               <div className="mt-6">
