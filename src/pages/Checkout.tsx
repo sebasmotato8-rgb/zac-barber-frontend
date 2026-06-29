@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js'
 import { useCart } from '../context/CartContext'
 import type { OrderData } from '../types'
@@ -39,7 +39,6 @@ function OrderConfirmation({ orderId }: { orderId: string }) {
 
 export default function Checkout() {
   const { items, subtotal, clearCart } = useCart()
-  const navigate = useNavigate()
   const [confirmedOrderId, setConfirmedOrderId] = useState<string | null>(null)
   const [paymentError, setPaymentError] = useState<string | null>(null)
   const [form, setForm] = useState<OrderData>({
