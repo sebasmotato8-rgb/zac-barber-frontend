@@ -12,13 +12,13 @@ export default function Cart() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
           </svg>
         </div>
-        <h2 className="font-display text-2xl tracking-tight text-[#1a1a1a]">Tu carrito está vacío</h2>
-        <p className="mt-2 text-sm text-[#888880]">Agrega productos para continuar con tu compra.</p>
+        <h2 className="font-display text-2xl tracking-tight text-[#1a1a1a]">Your cart is empty</h2>
+        <p className="mt-2 text-sm text-[#888880]">Add products to continue with your purchase.</p>
         <Link
           to="/product"
           className="mt-6 inline-flex items-center bg-terra px-6 py-3 text-sm font-bold tracking-wider text-white uppercase transition-all hover:bg-terra-dark"
         >
-          Ver producto
+          View Product
         </Link>
       </div>
     )
@@ -27,7 +27,7 @@ export default function Cart() {
   return (
     <div className="min-h-screen bg-[#FAFAF8]">
       <div className="mx-auto max-w-3xl px-6 py-10 md:py-16">
-        <h1 className="font-display text-3xl tracking-tight text-[#1a1a1a] mb-8">CARRITO</h1>
+        <h1 className="font-display text-3xl tracking-tight text-[#1a1a1a] mb-8">YOUR CART</h1>
 
         <div className="space-y-3">
           {items.map(item => (
@@ -61,7 +61,7 @@ export default function Cart() {
                     <button
                       onClick={() => removeItem(item.product.id)}
                       className="text-[#888880] hover:text-red-500 transition-colors"
-                      title="Eliminar"
+                      title="Remove"
                     >
                       <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -80,8 +80,8 @@ export default function Cart() {
             <span className="font-semibold text-[#1a1a1a]">${subtotal.toFixed(2)}</span>
           </div>
           <div className="flex items-center justify-between text-sm mb-4">
-            <span className="text-[#888880]">Envío</span>
-            <span className="font-semibold text-terra">Gratis</span>
+            <span className="text-[#888880]">Shipping</span>
+            <span className="font-semibold text-terra">Free</span>
           </div>
           <div className="border-t border-[#E0DCD6] pt-4 flex items-center justify-between">
             <span className="font-display text-xl text-[#1a1a1a]">TOTAL</span>
@@ -94,13 +94,13 @@ export default function Cart() {
             to="/checkout"
             className="flex-1 bg-terra py-3.5 text-center text-sm font-bold tracking-wider text-white uppercase transition-all hover:bg-terra-dark"
           >
-            Proceder al pago — ${subtotal.toFixed(2)}
+            Proceed to Checkout — ${subtotal.toFixed(2)}
           </Link>
           <Link
             to="/product"
             className="flex-1 border border-[#E8E4DF] py-3.5 text-center text-sm font-bold tracking-wider text-[#1a1a1a] uppercase transition-colors hover:border-[#D8D4CE]"
           >
-            Seguir comprando
+            Continue Shopping
           </Link>
         </div>
       </div>

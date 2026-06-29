@@ -14,11 +14,11 @@ export default function Navbar() {
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
-          <Link to="/" className="text-sm text-[#888880] transition-colors hover:text-[#1a1a1a]">Inicio</Link>
-          <Link to="/product" className="text-sm text-[#888880] transition-colors hover:text-[#1a1a1a]">Producto</Link>
+          <Link to="/" className="text-sm text-[#888880] transition-colors hover:text-[#1a1a1a]">Home</Link>
+          <Link to="/product" className="text-sm text-[#888880] transition-colors hover:text-[#1a1a1a]">Product</Link>
           <Link to="/cart" className="relative flex items-center gap-1.5 text-sm text-[#888880] transition-colors hover:text-[#1a1a1a]">
             <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
-            Carrito
+            Cart
             {count > 0 && (
               <span className="absolute -right-3.5 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-terra text-[10px] font-bold text-white">
                 {count}
@@ -36,10 +36,10 @@ export default function Navbar() {
 
       {open && (
         <div className="border-t border-[#E8E4DF] bg-[#FAFAF8] px-6 pb-5 pt-3 md:hidden space-y-1">
-          <Link to="/" onClick={() => setOpen(false)} className="block py-2.5 text-sm text-[#888880]">Inicio</Link>
-          <Link to="/product" onClick={() => setOpen(false)} className="block py-2.5 text-sm text-[#888880]">Producto</Link>
+          <Link to="/" onClick={() => setOpen(false)} className="block py-2.5 text-sm text-[#888880]">Home</Link>
+          <Link to="/product" onClick={() => setOpen(false)} className="block py-2.5 text-sm text-[#888880]">Product</Link>
           <Link to="/cart" onClick={() => setOpen(false)} className="flex items-center gap-2 py-2.5 text-sm text-[#888880]">
-            Carrito {count > 0 && <span className="rounded-full bg-terra px-2 py-0.5 text-[10px] font-bold text-white">{count}</span>}
+            Cart {count > 0 && <span className="rounded-full bg-terra px-2 py-0.5 text-[10px] font-bold text-white">{count}</span>}
           </Link>
         </div>
       )}

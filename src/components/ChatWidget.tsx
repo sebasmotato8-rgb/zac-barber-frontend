@@ -6,51 +6,51 @@ interface Props {
   onClose: () => void
 }
 
-// TODO: agregar WhatsApp cuando esté disponible
+// TODO: add WhatsApp when available
 const FAQ: { keywords: string[]; answer: string }[] = [
   {
-    keywords: ['envío', 'envio', 'llega', 'demora', 'tarda', 'cuanto tarda', 'shipping', 'entrega', 'tiempo', 'días', 'dias'],
-    answer: 'Realizamos envíos a todo el mundo. Para USA la entrega es de 5-11 días hábiles. Para otros países tarda entre 20-30 días hábiles. Una vez despachado tu pedido, recibirás un número de seguimiento por email. Si necesitas ayuda, escríbenos a soporte@chargly.shop.',
+    keywords: ['shipping', 'ship', 'deliver', 'delivery', 'arrive', 'how long', 'days', 'tracking', 'track'],
+    answer: 'We ship worldwide! Delivery to the USA takes 5-11 business days. International shipping takes 20-30 business days. Once your order ships, you\'ll receive a tracking number via email. Need help? Email us at soporte@chargly.shop.',
   },
   {
-    keywords: ['garantía', 'garantia', 'devolucion', 'devolución', 'devolver', 'reembolso', 'roto', 'defecto', 'dañado'],
-    answer: 'Ofrecemos garantía de 30 días. Si el producto llega defectuoso o no funciona correctamente, te enviamos uno nuevo o te hacemos un reembolso completo. Sin preguntas, sin letra pequeña. Escríbenos a soporte@chargly.shop.',
+    keywords: ['warranty', 'return', 'refund', 'broken', 'defective', 'money back', 'guarantee'],
+    answer: 'We offer a 30-day warranty. If the product arrives defective or doesn\'t work properly, we\'ll send you a new one or issue a full refund. No questions asked, no fine print. Contact us at soporte@chargly.shop.',
   },
   {
-    keywords: ['compatible', 'compatibilidad', 'iphone', 'android', 'samsung', 'funciona con', 'sirve para', 'magsafe', 'pixel', 'xiaomi'],
-    answer: 'Compatible con iPhone 12, 13, 14, 15 y 16 con adhesión magnética MagSafe. También funciona con Android que soporte carga inalámbrica Qi (Samsung, Pixel, Xiaomi). Incluye puerto USB-C para carga con cable de cualquier dispositivo.',
+    keywords: ['compatible', 'compatibility', 'iphone', 'android', 'samsung', 'work with', 'magsafe', 'pixel', 'xiaomi'],
+    answer: 'Compatible with iPhone 12, 13, 14, 15, and 16 with MagSafe magnetic attachment. Also works with Android devices that support Qi wireless charging (Samsung, Pixel, Xiaomi). Includes USB-C port for wired charging of any device.',
   },
   {
-    keywords: ['pedido', 'orden', 'estado', 'seguimiento', 'tracking', 'donde esta', 'dónde está', 'rastrear', 'número'],
-    answer: 'Para consultar el estado de tu pedido, revisa el email de confirmación que enviamos a tu correo con el número de seguimiento. Si no lo encuentras o tienes dudas, escríbenos a soporte@chargly.shop con tu número de orden.',
+    keywords: ['order', 'status', 'where is', 'track', 'tracking', 'number', 'confirmation'],
+    answer: 'To check your order status, look for the confirmation email we sent to your inbox with a tracking number. If you can\'t find it, email us at soporte@chargly.shop with your order number and we\'ll help you right away.',
   },
   {
-    keywords: ['precio', 'costo', 'cuanto cuesta', 'cuánto cuesta', 'vale', 'descuento', 'oferta', 'promoción', 'promocion'],
-    answer: 'El Mini Magnetic Wireless Power Bank 10000mAh tiene un precio de $29.99 USD (precio regular $59.99). ¡50% de descuento por tiempo limitado! El envío gratis está incluido a todo el mundo.',
+    keywords: ['price', 'cost', 'how much', 'discount', 'sale', 'deal', 'coupon'],
+    answer: 'The Mini Magnetic Wireless Power Bank 10,000mAh is $29.99 USD (regular price $59.99). That\'s 50% OFF for a limited time! Free worldwide shipping included.',
   },
   {
-    keywords: ['pago', 'pagar', 'paypal', 'tarjeta', 'forma de pago', 'método', 'metodo', 'crédito', 'credito', 'débito', 'debito'],
-    answer: 'Aceptamos pagos con PayPal, incluyendo tarjetas de crédito y débito. No necesitas cuenta PayPal para pagar con tarjeta. Tu pago está 100% protegido por la garantía de comprador de PayPal.',
+    keywords: ['pay', 'payment', 'paypal', 'card', 'credit', 'debit', 'checkout'],
+    answer: 'We accept payments through PayPal, including credit and debit cards. You don\'t need a PayPal account to pay with a card. Your payment is 100% protected by PayPal Buyer Protection.',
   },
   {
-    keywords: ['capacidad', 'mah', 'cuanto carga', 'cuánto carga', 'batería', 'bateria', 'duración', 'duracion', 'carga completa', 'potencia', 'watts'],
-    answer: 'El power bank tiene 10,000mAh / 37Wh de capacidad real. Esto es suficiente para cargar un iPhone completamente 2+ veces. Soporta carga inalámbrica MagSafe de 15W y carga por cable USB-C de 20W.',
+    keywords: ['capacity', 'mah', 'charge', 'battery', 'power', 'watts', 'how many'],
+    answer: 'The power bank has a real 10,000mAh / 37Wh capacity. That\'s enough to fully charge an iPhone 2+ times. It supports 15W MagSafe wireless charging and 20W USB-C wired charging.',
   },
   {
-    keywords: ['redes', 'social', 'tiktok', 'instagram', 'ig', 'insta', 'síguenos', 'siguenos'],
-    answer: 'Síguenos en nuestras redes sociales para ver videos del producto y promociones exclusivas:\n\n• TikTok: @charglyoficial\n• Instagram: @chargly\n\n¡Comparte tu experiencia con el hashtag #Chargly!',
+    keywords: ['social', 'tiktok', 'instagram', 'ig', 'follow', 'media'],
+    answer: 'Follow us on social media for product videos and exclusive deals:\n\n• TikTok: @charglyoficial\n• Instagram: @chargly\n\nShare your experience with #Chargly!',
   },
   {
-    keywords: ['contacto', 'email', 'correo', 'soporte', 'ayuda', 'comunicar', 'hablar', 'persona', 'humano', 'agente'],
-    answer: 'Puedes contactarnos por estos medios:\n\n• Email: soporte@chargly.shop\n• TikTok: @charglyoficial\n• Instagram: @chargly\n\nHorario de atención: Lunes a Viernes 9am-6pm. Respondemos en máximo 24 horas.',
+    keywords: ['contact', 'email', 'support', 'help', 'talk', 'person', 'human', 'agent', 'reach'],
+    answer: 'You can reach us through:\n\n• Email: soporte@chargly.shop\n• TikTok: @charglyoficial\n• Instagram: @chargly\n\nBusiness hours: Monday to Friday, 9am-6pm. We respond within 24 hours.',
   },
   {
-    keywords: ['hola', 'buenas', 'hey', 'hi', 'buenos días', 'qué tal', 'ayuda', 'help', 'menu', 'menú', 'opciones'],
-    answer: '¡Hola! 👋 Soy el asistente de Chargly. ¿En qué puedo ayudarte hoy?\n\n1. Información del producto\n2. Envíos y entregas\n3. Garantía y devoluciones\n4. Estado de mi pedido\n5. Métodos de pago\n\nEscribe tu pregunta o el número de la opción.',
+    keywords: ['hello', 'hi', 'hey', 'good', 'help', 'menu', 'options', 'what can'],
+    answer: 'Hi! 👋 I\'m the Chargly assistant. How can I help you today?\n\n1. Product information\n2. Shipping & delivery\n3. Warranty & returns\n4. Order status\n5. Payment methods\n\nType your question or pick a number!',
   },
   {
-    keywords: ['gracias', 'thanks', 'genial', 'perfecto', 'listo', 'ok', 'vale', 'entendido'],
-    answer: '¡Con gusto! Si tienes alguna otra pregunta no dudes en escribirme. También puedes contactarnos en soporte@chargly.shop. ¡Que tengas un excelente día! 😊',
+    keywords: ['thanks', 'thank', 'great', 'perfect', 'awesome', 'cool', 'ok', 'got it'],
+    answer: 'You\'re welcome! If you have any other questions, feel free to ask. You can also reach us at soporte@chargly.shop. Have a great day! 😊',
   },
 ]
 
@@ -61,13 +61,13 @@ function getResponse(input: string): string {
       return faq.answer
     }
   }
-  return 'No encontré una respuesta exacta para tu pregunta. Puedes escribirnos directamente a soporte@chargly.shop y te responderemos en menos de 24 horas.\n\n¿Te puedo ayudar con envíos, garantía, compatibilidad o el estado de tu pedido?'
+  return 'I couldn\'t find an exact answer to your question. You can email us directly at soporte@chargly.shop and we\'ll get back to you within 24 hours.\n\nCan I help you with shipping, warranty, compatibility, or your order status?'
 }
 
 const WELCOME: Message = {
   id: 'welcome',
   role: 'assistant',
-  content: '¡Hola! 👋 Soy el asistente de Chargly. ¿En qué puedo ayudarte hoy?\n\n1. Información del producto\n2. Envíos y entregas\n3. Garantía y devoluciones\n4. Estado de mi pedido\n5. Métodos de pago',
+  content: 'Hi! 👋 Welcome to Chargly. How can I help you today?\n\n1. Product information\n2. Shipping & delivery\n3. Warranty & returns\n4. Order status\n5. Payment methods',
 }
 
 export default function ChatWidget({ onClose }: Props) {
@@ -102,7 +102,7 @@ export default function ChatWidget({ onClose }: Props) {
           className="flex items-center gap-2 rounded-full bg-white border border-zinc-200 px-4 py-2.5 shadow-xl hover:border-accent-500/50 transition-colors"
         >
           <span className="flex h-6 w-6 items-center justify-center rounded-full bg-accent-500 text-[10px] font-bold text-white">C</span>
-          <span className="text-sm font-medium text-zinc-700">Soporte</span>
+          <span className="text-sm font-medium text-zinc-700">Support</span>
           {messages.length > 1 && (
             <span className="flex h-5 w-5 items-center justify-center rounded-full bg-accent-500 text-[10px] font-bold text-white">
               {messages.filter(m => m.role === 'assistant').length - 1}
@@ -121,18 +121,18 @@ export default function ChatWidget({ onClose }: Props) {
           <div className="flex items-center gap-3">
             <span className="flex h-8 w-8 items-center justify-center rounded-full bg-accent-500 text-xs font-bold text-white">C</span>
             <div>
-              <p className="text-sm font-semibold text-zinc-900">Chargly Soporte</p>
+              <p className="text-sm font-semibold text-zinc-900">Chargly Support</p>
               <p className="text-[11px] text-emerald-500 flex items-center gap-1">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                En línea
+                Online
               </p>
             </div>
           </div>
           <div className="flex items-center gap-1">
-            <button onClick={() => setMinimized(true)} className="rounded-lg p-1.5 text-zinc-400 hover:bg-zinc-100 hover:text-zinc-600 transition-colors" title="Minimizar">
+            <button onClick={() => setMinimized(true)} className="rounded-lg p-1.5 text-zinc-400 hover:bg-zinc-100 hover:text-zinc-600 transition-colors" title="Minimize">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeWidth={2} d="M20 12H4" /></svg>
             </button>
-            <button onClick={onClose} className="rounded-lg p-1.5 text-zinc-400 hover:bg-zinc-100 hover:text-zinc-600 transition-colors" title="Cerrar">
+            <button onClick={onClose} className="rounded-lg p-1.5 text-zinc-400 hover:bg-zinc-100 hover:text-zinc-600 transition-colors" title="Close">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
             </button>
           </div>
@@ -147,7 +147,7 @@ export default function ChatWidget({ onClose }: Props) {
             ref={inputRef}
             value={input}
             onChange={e => setInput(e.target.value)}
-            placeholder="Escribe tu pregunta..."
+            placeholder="Type your question..."
             className="flex-1 rounded-full border border-zinc-200 bg-white px-4 py-2 text-sm text-zinc-900 placeholder-zinc-400 focus:border-accent-500 focus:outline-none"
           />
           <button

@@ -14,24 +14,24 @@ function OrderConfirmation({ orderId }: { orderId: string }) {
           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
         </svg>
       </div>
-      <h2 className="font-display text-3xl tracking-tight text-[#1a1a1a]">¡PEDIDO CONFIRMADO!</h2>
+      <h2 className="font-display text-3xl tracking-tight text-[#1a1a1a]">ORDER CONFIRMED!</h2>
       <p className="mt-3 text-sm text-[#888880] max-w-md">
-        Tu orden <strong className="text-[#1a1a1a]">#{orderId}</strong> ha sido procesada exitosamente.
-        Recibirás un email de confirmación con los detalles de envío.
+        Your order <strong className="text-[#1a1a1a]">#{orderId}</strong> has been processed successfully.
+        You will receive a confirmation email with shipping details.
       </p>
       <div className="mt-6 border border-[#E8E4DF] bg-[#F5F2EE] p-5 text-sm text-[#888880] max-w-sm rounded">
-        <p className="font-bold text-[#1a1a1a] mb-2">Próximos pasos:</p>
+        <p className="font-bold text-[#1a1a1a] mb-2">Next steps:</p>
         <ul className="space-y-1.5 text-left">
-          <li className="flex items-start gap-2"><span className="text-terra font-bold">1.</span> Recibirás un email de confirmación</li>
-          <li className="flex items-start gap-2"><span className="text-terra font-bold">2.</span> Tu pedido será enviado en 1-3 días</li>
-          <li className="flex items-start gap-2"><span className="text-terra font-bold">3.</span> Entrega: USA 5-11 días / Internacional 20-30 días</li>
+          <li className="flex items-start gap-2"><span className="text-terra font-bold">1.</span> You will receive a confirmation email</li>
+          <li className="flex items-start gap-2"><span className="text-terra font-bold">2.</span> Your order will ship within 1-3 days</li>
+          <li className="flex items-start gap-2"><span className="text-terra font-bold">3.</span> Delivery: USA 5-11 days / International 20-30 days</li>
         </ul>
       </div>
       <Link
         to="/"
         className="mt-8 inline-flex items-center gap-2 bg-terra px-6 py-3 text-sm font-bold tracking-wider text-white uppercase transition-all hover:bg-terra-dark"
       >
-        Volver a la tienda
+        Back to Store
       </Link>
     </div>
   )
@@ -54,12 +54,12 @@ export default function Checkout() {
 
   function validate(): boolean {
     const e: Partial<Record<keyof OrderData, string>> = {}
-    if (!form.name.trim()) e.name = 'Nombre requerido'
-    if (!form.email.trim() || !form.email.includes('@')) e.email = 'Email válido requerido'
-    if (!form.address.trim()) e.address = 'Dirección requerida'
-    if (!form.city.trim()) e.city = 'Ciudad requerida'
-    if (!form.country.trim()) e.country = 'País requerido'
-    if (!form.phone.trim()) e.phone = 'Teléfono requerido'
+    if (!form.name.trim()) e.name = 'Full name required'
+    if (!form.email.trim() || !form.email.includes('@')) e.email = 'Valid email required'
+    if (!form.address.trim()) e.address = 'Address required'
+    if (!form.city.trim()) e.city = 'City required'
+    if (!form.country.trim()) e.country = 'Country required'
+    if (!form.phone.trim()) e.phone = 'Phone required'
     setErrors(e)
     return Object.keys(e).length === 0
   }
@@ -69,10 +69,10 @@ export default function Checkout() {
   if (items.length === 0 && !confirmedOrderId) {
     return (
       <div className="flex min-h-[60vh] flex-col items-center justify-center px-6 text-center bg-[#FAFAF8]">
-        <h2 className="font-display text-2xl tracking-tight text-[#1a1a1a]">No hay productos en el carrito</h2>
-        <p className="mt-2 text-sm text-[#888880]">Agrega productos antes de proceder al pago.</p>
+        <h2 className="font-display text-2xl tracking-tight text-[#1a1a1a]">Your cart is empty</h2>
+        <p className="mt-2 text-sm text-[#888880]">Add products before proceeding to checkout.</p>
         <Link to="/product" className="mt-6 inline-flex bg-terra px-6 py-3 text-sm font-bold tracking-wider text-white uppercase hover:bg-terra-dark">
-          Ver producto
+          View Product
         </Link>
       </div>
     )
@@ -83,12 +83,12 @@ export default function Checkout() {
   }
 
   const fields: { key: keyof OrderData; label: string; type: string; placeholder: string; half?: boolean }[] = [
-    { key: 'name', label: 'Nombre completo', type: 'text', placeholder: 'Juan Pérez' },
-    { key: 'email', label: 'Email', type: 'email', placeholder: 'tu@email.com' },
-    { key: 'phone', label: 'Teléfono', type: 'tel', placeholder: '+1 234 567 8900' },
-    { key: 'address', label: 'Dirección de envío', type: 'text', placeholder: 'Calle 123, Apto 4B' },
-    { key: 'city', label: 'Ciudad', type: 'text', placeholder: 'Ciudad', half: true },
-    { key: 'country', label: 'País', type: 'text', placeholder: 'País', half: true },
+    { key: 'name', label: 'Full Name', type: 'text', placeholder: 'John Smith' },
+    { key: 'email', label: 'Email', type: 'email', placeholder: 'you@email.com' },
+    { key: 'phone', label: 'Phone', type: 'tel', placeholder: '+1 234 567 8900' },
+    { key: 'address', label: 'Shipping Address', type: 'text', placeholder: '123 Main St, Apt 4B' },
+    { key: 'city', label: 'City', type: 'text', placeholder: 'New York', half: true },
+    { key: 'country', label: 'Country', type: 'text', placeholder: 'US', half: true },
   ]
 
   return (
@@ -99,7 +99,7 @@ export default function Checkout() {
 
           <div className="grid gap-10 lg:grid-cols-5">
             <div className="lg:col-span-3 space-y-5">
-              <h2 className="text-xs font-medium uppercase tracking-[0.2em] text-[#888880]">Datos de envío</h2>
+              <h2 className="text-xs font-medium uppercase tracking-[0.2em] text-[#888880]">Shipping Details</h2>
 
               <div className="grid gap-4 sm:grid-cols-2">
                 {fields.map(f => (
@@ -122,13 +122,13 @@ export default function Checkout() {
               </div>
 
               <div className="mt-6">
-                <h2 className="text-xs font-medium uppercase tracking-[0.2em] text-[#888880] mb-4">Método de pago</h2>
+                <h2 className="text-xs font-medium uppercase tracking-[0.2em] text-[#888880] mb-4">Payment Method</h2>
                 <div className="border border-[#E8E4DF] bg-[#F5F2EE] p-5 rounded">
                   {paymentError && (
                     <div className="mb-4 border border-red-200 bg-red-50 p-4 rounded">
                       <p className="text-sm font-medium text-red-700">{paymentError}</p>
                       <p className="mt-1 text-xs text-red-500">
-                        Intenta de nuevo o contáctanos en{' '}
+                        Try again or contact us at{' '}
                         <a href="mailto:soporte@chargly.shop" className="underline">soporte@chargly.shop</a>
                       </p>
                     </div>
@@ -138,7 +138,7 @@ export default function Checkout() {
                       style={{ layout: 'vertical', shape: 'rect', color: 'gold', label: 'pay' }}
                       createOrder={(_data, actions) => {
                         setPaymentError(null)
-                        if (!validate()) return Promise.reject(new Error('Formulario inválido'))
+                        if (!validate()) return Promise.reject(new Error('Invalid form'))
                         return actions.order.create({
                           intent: 'CAPTURE',
                           purchase_units: [{
@@ -161,19 +161,19 @@ export default function Checkout() {
                           setConfirmedOrderId(details.id ?? crypto.randomUUID().slice(0, 8).toUpperCase())
                           clearCart()
                         } catch {
-                          setPaymentError('No se pudo completar el pago. Tu tarjeta o cuenta de PayPal pudo haber sido rechazada.')
+                          setPaymentError('Could not complete the payment. Your card or PayPal account may have been declined.')
                         }
                       }}
                       onCancel={() => {
-                        setPaymentError('Pago cancelado. Puedes intentarlo de nuevo cuando quieras.')
+                        setPaymentError('Payment cancelled. You can try again whenever you\'re ready.')
                       }}
                       onError={() => {
-                        setPaymentError('Hubo un problema con el pago. Verifica tu método de pago e intenta de nuevo.')
+                        setPaymentError('There was a problem with the payment. Please check your payment method and try again.')
                       }}
                     />
                   ) : (
                     <div className="py-6 text-center">
-                      <p className="text-sm text-[#888880]">Completa todos los campos del formulario para habilitar el pago.</p>
+                      <p className="text-sm text-[#888880]">Fill in all form fields to enable payment.</p>
                     </div>
                   )}
                 </div>
@@ -182,7 +182,7 @@ export default function Checkout() {
 
             <div className="lg:col-span-2">
               <div className="sticky top-24 border border-[#E8E4DF] bg-[#F5F2EE] p-6 rounded">
-                <h2 className="text-xs font-medium uppercase tracking-[0.2em] text-[#888880] mb-5">Resumen del pedido</h2>
+                <h2 className="text-xs font-medium uppercase tracking-[0.2em] text-[#888880] mb-5">Order Summary</h2>
 
                 <div className="space-y-4 mb-6">
                   {items.map(item => (
@@ -192,7 +192,7 @@ export default function Checkout() {
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium text-[#1a1a1a] truncate">{item.product.name}</p>
-                        <p className="text-xs text-[#888880]">Cantidad: {item.quantity}</p>
+                        <p className="text-xs text-[#888880]">Qty: {item.quantity}</p>
                       </div>
                       <span className="text-sm font-semibold text-[#1a1a1a]">${(item.product.price * item.quantity).toFixed(2)}</span>
                     </div>
@@ -205,8 +205,8 @@ export default function Checkout() {
                     <span className="font-medium text-[#1a1a1a]">${subtotal.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-[#888880]">Envío</span>
-                    <span className="font-medium text-terra">Gratis</span>
+                    <span className="text-[#888880]">Shipping</span>
+                    <span className="font-medium text-terra">Free</span>
                   </div>
                   <div className="flex justify-between border-t border-[#E0DCD6] pt-3 mt-3">
                     <span className="font-display text-lg text-[#1a1a1a]">TOTAL</span>
@@ -218,7 +218,7 @@ export default function Checkout() {
                   <svg className="h-4 w-4 text-terra" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                   </svg>
-                  Pago seguro con PayPal
+                  Secure payment with PayPal
                 </div>
               </div>
             </div>

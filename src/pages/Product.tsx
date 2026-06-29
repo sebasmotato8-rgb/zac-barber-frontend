@@ -111,7 +111,7 @@ export default function Product() {
                   <svg key={i} className="h-4 w-4 text-terra" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
                 ))}
               </div>
-              <span className="text-sm text-[#888880]">(127 reseñas)</span>
+              <span className="text-sm text-[#888880]">(127 reviews)</span>
             </div>
 
             <div className="mt-6 flex items-baseline gap-3">
@@ -124,7 +124,7 @@ export default function Product() {
 
             <div className="mt-8 space-y-4">
               <div>
-                <label className="mb-1.5 block text-[11px] font-medium uppercase tracking-wider text-[#888880]">Cantidad</label>
+                <label className="mb-1.5 block text-[11px] font-medium uppercase tracking-wider text-[#888880]">Quantity</label>
                 <div className="inline-flex items-center border border-[#E8E4DF] rounded">
                   <button
                     onClick={() => setQty(q => Math.max(1, q - 1))}
@@ -143,7 +143,7 @@ export default function Product() {
                   onClick={handleBuyNow}
                   className="flex-1 bg-terra py-3.5 text-sm font-bold tracking-wider text-white uppercase transition-all hover:bg-terra-dark"
                 >
-                  Comprar ahora — ${(PRODUCT.price * qty).toFixed(2)}
+                  Buy Now — ${(PRODUCT.price * qty).toFixed(2)}
                 </button>
                 <button
                   onClick={handleAdd}
@@ -153,16 +153,16 @@ export default function Product() {
                       : 'border-[#E8E4DF] text-[#1a1a1a] hover:border-[#D8D4CE]'
                   }`}
                 >
-                  {added ? '✓ Agregado' : 'Agregar al carrito'}
+                  {added ? '✓ Added' : 'Add to Cart'}
                 </button>
               </div>
             </div>
 
             <div className="mt-8 grid grid-cols-3 gap-3">
               {[
-                { icon: 'M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4', label: 'Envío gratis mundial' },
-                { icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z', label: 'Garantía 30d' },
-                { icon: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z', label: 'Pago seguro' },
+                { icon: 'M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4', label: 'Free Shipping' },
+                { icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z', label: '30-Day Warranty' },
+                { icon: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z', label: 'Secure Payment' },
               ].map(b => (
                 <div key={b.label} className="flex flex-col items-center gap-2 border border-[#E8E4DF] bg-[#F5F2EE] p-3 text-center rounded">
                   <svg className="h-5 w-5 text-terra" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
@@ -178,7 +178,7 @@ export default function Product() {
         {/* ── Features + Specs ── */}
         <div className="mt-20 grid gap-12 md:grid-cols-2">
           <div>
-            <h2 className="font-display text-3xl tracking-tight text-[#1a1a1a] mb-6">CARACTERÍSTICAS</h2>
+            <h2 className="font-display text-3xl tracking-tight text-[#1a1a1a] mb-6">FEATURES</h2>
             <ul className="space-y-3">
               {PRODUCT.features.map(f => (
                 <li key={f} className="flex items-start gap-3 text-sm text-[#555550]">
@@ -190,7 +190,7 @@ export default function Product() {
           </div>
 
           <div>
-            <h2 className="font-display text-3xl tracking-tight text-[#1a1a1a] mb-6">ESPECIFICACIONES</h2>
+            <h2 className="font-display text-3xl tracking-tight text-[#1a1a1a] mb-6">SPECIFICATIONS</h2>
             <div className="border border-[#E8E4DF] overflow-hidden rounded">
               {Object.entries(PRODUCT.specs).map(([key, value], i) => (
                 <div
