@@ -10,7 +10,7 @@ interface Props {
 const FAQ: { keywords: string[]; answer: string }[] = [
   {
     keywords: ['envío', 'envio', 'llega', 'demora', 'tarda', 'cuanto tarda', 'shipping', 'entrega', 'tiempo', 'días', 'dias'],
-    answer: 'El envío tarda entre 15-20 días hábiles. Realizamos envíos a todo el mundo. Una vez despachado tu pedido, recibirás un número de seguimiento por email a la dirección con la que hiciste tu compra. Si necesitas ayuda, escríbenos a soporte@chargly.shop.',
+    answer: 'Realizamos envíos a todo el mundo. Para USA la entrega es de 5-11 días hábiles. Para otros países tarda entre 20-30 días hábiles. Una vez despachado tu pedido, recibirás un número de seguimiento por email. Si necesitas ayuda, escríbenos a soporte@chargly.shop.',
   },
   {
     keywords: ['garantía', 'garantia', 'devolucion', 'devolución', 'devolver', 'reembolso', 'roto', 'defecto', 'dañado'],

@@ -23,8 +23,10 @@ export default function Footer() {
           <div>
             <h4 className="text-xs font-medium uppercase tracking-[0.2em] text-[#888888] mb-4">Soporte</h4>
             <div className="space-y-3 text-sm text-[#888888]">
-              <p>Envío: 15-20 días hábiles</p>
+              <p>USA: 5-11 días hábiles</p>
+              <p>Internacional: 20-30 días</p>
               <p>Garantía: 30 días</p>
+              <p>Envíos mundiales disponibles</p>
               <p>soporte@chargly.shop</p>
             </div>
           </div>

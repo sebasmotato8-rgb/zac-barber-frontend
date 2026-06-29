@@ -94,7 +94,7 @@ export default function Home() {
               Ver producto
             </Link>
           </div>
-          <p className="mt-3 text-xs text-white/35">Env&iacute;o gratis &middot; Garant&iacute;a 30 d&iacute;as &middot; Pago seguro con PayPal</p>
+          <p className="mt-3 text-xs text-white/35">Env&iacute;o gratis a todo el mundo &middot; USA 5-11 d&iacute;as &middot; Garant&iacute;a 30 d&iacute;as</p>
         </div>
 
         <div className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 flex flex-col items-center gap-2 text-white/25">
@@ -190,7 +190,7 @@ export default function Home() {
               >
                 Agregar al carrito
               </button>
-              <p className="mt-2 text-xs text-[#888880]">Env&iacute;o gratis &middot; Llega en 15-20 d&iacute;as</p>
+              <p className="mt-2 text-xs text-[#888880]">Env&iacute;o gratis &middot; USA 5-11 d&iacute;as / Internacional 20-30 d&iacute;as</p>
             </div>
             <div className="relative overflow-hidden">
               <img src={PRODUCT.images[1]} alt="Chargly Power Bank vista frontal" className="w-full object-cover" />
@@ -487,7 +487,7 @@ export default function Home() {
             &iquest;LISTO PARA NUNCA<br />QUEDARTE SIN<br />BATER&Iacute;A?
           </h2>
           <p className="mt-6 text-base font-light text-[#888888]">
-            $29.99 USD &mdash; Env&iacute;o gratis a todo el mundo &middot; Garant&iacute;a 30 d&iacute;as
+            $29.99 USD &mdash; Env&iacute;o gratis &middot; USA 5-11 d&iacute;as / Internacional 20-30 d&iacute;as
           </p>
           <Link
             to="/product"

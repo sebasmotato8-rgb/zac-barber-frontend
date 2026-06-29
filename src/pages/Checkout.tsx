@@ -24,7 +24,7 @@ function OrderConfirmation({ orderId }: { orderId: string }) {
         <ul className="space-y-1.5 text-left">
           <li className="flex items-start gap-2"><span className="text-terra font-bold">1.</span> Recibirás un email de confirmación</li>
           <li className="flex items-start gap-2"><span className="text-terra font-bold">2.</span> Tu pedido será enviado en 1-3 días</li>
-          <li className="flex items-start gap-2"><span className="text-terra font-bold">3.</span> Entrega estimada: 15-20 días hábiles</li>
+          <li className="flex items-start gap-2"><span className="text-terra font-bold">3.</span> Entrega: USA 5-11 días / Internacional 20-30 días</li>
         </ul>
       </div>
       <Link
