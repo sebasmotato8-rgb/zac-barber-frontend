@@ -38,11 +38,11 @@ const FAQ: { keywords: string[]; answer: string }[] = [
   },
   {
     keywords: ['redes', 'social', 'tiktok', 'instagram', 'ig', 'insta', 'síguenos', 'siguenos'],
-    answer: 'Síguenos en nuestras redes sociales para ver videos del producto y promociones exclusivas:\n\n• TikTok: @charglioficial\n• Instagram: @chargly\n\n¡Comparte tu experiencia con el hashtag #Chargly!',
+    answer: 'Síguenos en nuestras redes sociales para ver videos del producto y promociones exclusivas:\n\n• TikTok: @charglyoficial\n• Instagram: @chargly\n\n¡Comparte tu experiencia con el hashtag #Chargly!',
   },
   {
     keywords: ['contacto', 'email', 'correo', 'soporte', 'ayuda', 'comunicar', 'hablar', 'persona', 'humano', 'agente'],
-    answer: 'Puedes contactarnos por estos medios:\n\n• Email: soporte@chargly.shop\n• TikTok: @charglioficial\n• Instagram: @chargly\n\nHorario de atención: Lunes a Viernes 9am-6pm. Respondemos en máximo 24 horas.',
+    answer: 'Puedes contactarnos por estos medios:\n\n• Email: soporte@chargly.shop\n• TikTok: @charglyoficial\n• Instagram: @chargly\n\nHorario de atención: Lunes a Viernes 9am-6pm. Respondemos en máximo 24 horas.',
   },
   {
     keywords: ['hola', 'buenas', 'hey', 'hi', 'buenos días', 'qué tal', 'ayuda', 'help', 'menu', 'menú', 'opciones'],
